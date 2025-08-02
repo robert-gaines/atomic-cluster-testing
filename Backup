@@ -14,20 +14,14 @@ RUN \
 
 # Install Powershell
 RUN \
-  # Download the powershell '.tar.gz' archive
-  wget -q https://github.com/PowerShell/PowerShell/releases/download/v7.5.2/powershell-7.5.2-linux-arm64.tar.gz && \
-
-  # Create the target folder where powershell will be placed
-  mkdir -p /opt/microsoft/powershell/7 && \
-
-  # Expand powershell to the target folder
-  tar zxf powershell-7.5.2-linux-arm64.tar.gz -C /opt/microsoft/powershell/7 && \
-
-  # Set execute permissions
-  chmod +x /opt/microsoft/powershell/7/pwsh && \
-
-  # Create the symbolic link that points to pwsh
-  ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh 
+  # Download the Microsoft repository GPG keys
+  wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb && \
+  # Register the Microsoft repository GPG keys
+  dpkg -i packages-microsoft-prod.deb && \
+  # Update the list of packages after we added packages.microsoft.com
+  apt update  && \
+  # Install PowerShell Debian package
+  apt install -y powershell 
 
 # Install Atomic Red Team from pwsh
 RUN \

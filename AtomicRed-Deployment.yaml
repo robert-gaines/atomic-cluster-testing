@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: atomicred
-        image: robertgaines/atomic-cluster-testing:latest
+        image: robertgaines/atomic-cluster-testing:arm64
         command: ["sleep", "3560d"]
         securityContext:
           privileged: true
