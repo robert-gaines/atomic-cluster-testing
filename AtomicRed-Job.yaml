@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: atomicred
+  labels:
+    app: atomicred
+spec:
+  template:
+    metadata:
+      labels:
+        app: atomicred
+    spec:
+      containers:
+      - name: atomicred
+        image: robertgaines/atomic-cluster-testing:latest
+        command: ["pwsh", "/root/RunTests.ps1", "T1574.006" ]
+        securityContext:
+          privileged: true
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Never
+  backoffLimit: 4
