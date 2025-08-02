@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: atomicred
-        image: MyRemoteRepo/atomic_red_docker:latest
+        image: robertgaines/atomic-cluster-testing:latest
         command: ["sleep", "3560d"]
         securityContext:
           privileged: true
