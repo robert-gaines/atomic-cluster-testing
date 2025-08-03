@@ -13,7 +13,7 @@ spec:
       containers:
       - name: atomicred
         image: robertgaines/atomic-cluster-testing:arm64
-        command: ["pwsh", "/root/RunTests.ps1", "T1036.001" ]
+        command: ["pwsh", "/root/RunTests.ps1", "T1036.004" ]
         securityContext:
           privileged: true
       nodeSelector:
