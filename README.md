@@ -9,9 +9,9 @@ docker pull robertgaines/atomic-cluster-testing:arm64
 
 Testing related to this repository has been conducted on a k3s deployment. The following table tracks the success or failure of each test relative to the Container Matrix associated with MITRE ATT&CK.
 
-| Syntax      | Description | Test Text     |
-| :---        |    :----:   |          ---: |
-| Header      | Title       | Here's this   |
-| Paragraph   | Text        | And more      |
+| Category    | Technique   | Sub-technique | Outcome |
+| :---        |    :----:   |          ---: | :--     |
+| Header      | Title       | Here's this   | X       |
+| Paragraph   | Text        | And more      | X       |
 
 
