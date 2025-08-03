@@ -1,18 +1,32 @@
 pipeline {
                 agent {
-                    label 'res-phy-prd-rpi-9'  
+                    label 'jenkins-runner'  
                 }
 
     environment {
         KUBECONFIG = "/etc/rancher/k3s/k3s.yaml"
         NAMESPACE = "default"
         WORKSPACE = "/code/atomic-cluster-testing"
-        GIT_CREDENTIALS_ID = '88a9dcb0-74dc-44cd-91cd-2ff54e337e1e'  
+        GIT_CREDENTIALS_ID = ''  
         GIT_REPOSITORY_URL = 'https://github.com/robert-gaines/atomic-cluster-testing.git'
         GIT_BRANCH = 'main'
-        WEBHOOK_URL = 'https://chat.internal.subterfuge.biz/hooks/ixsizrcwa7y35gtwn6mw3mr37a'
+        WEBHOOK_URL = 'https://chat.server.fqdn/hooks/hook_id'
     }
+    
     stages {
+        
+        stage('Delete existing job') {
+            steps {
+                script {
+                         try {
+                              sh "kubectl delete job atomicred --namespace=${env.NAMESPACE}"
+                          } catch (Exception e) {
+                              echo 'Exception raised: ' + e.toString()
+                          }
+                }
+            }
+        }
+        
         stage('Checkout') {
             steps {
                 git(
@@ -42,6 +56,7 @@ pipeline {
                 }
             }
         }
+
     }
 
     post {
