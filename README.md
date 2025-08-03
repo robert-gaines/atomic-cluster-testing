@@ -11,6 +11,6 @@ Testing related to this repository has been conducted on a k3s deployment. The f
 
 | Category |  | Technique | | Sub-Technique | | Outcome |
 | :------- | :------: | -------: | | -------: |
-| Initial Access | Exploit Public-Facing Application | None | | X | 
+| Initial Access | Exploit Public-Facing Application | None | X | 
 
 
