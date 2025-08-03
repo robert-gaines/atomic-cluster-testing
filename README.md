@@ -17,9 +17,9 @@ kubectl exec -it atomicred-pod -- pwsh /root/RunTests.ps1 T1053.002
 
 Testing related to this repository has been conducted on a k3s deployment. The following table tracks the success or failure of each test relative to the Container Matrix associated with MITRE ATT&CK.
 
-| Category    | Technique   | Sub-technique | Outcome |
-| :------:    | :--------:  | :-----------: | :-----: |
-| Header      | Title       | Here's this   | X       |
+| Category       | Technique   | Sub-technique | Outcome |
+| :------:       | :--------:  | :-----------: | :-----: |
+| Initial Access | Exploit Public Facing Application | None   |  ✘       |
 | Paragraph   | Text        | And more      | X       |
 
 
